@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App - Javascript</title>
+
+    <link rel="stylesheet" href="style.css">
+
+
+
+</head>
+
+<body>
+
+
+    ## Acceptance Criteria
+
+    <!-- ```
+GIVEN a weather dashboard with form inputs
+WHEN I search for a city
+THEN I am presented with current and future conditions for that city and that city is added to the search history
+WHEN I view current weather conditions for that city
+THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
+
+WHEN I view the UV index
+THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
+
+WHEN I view future weather conditions for that city
+THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
+
+WHEN I click on a city in the search history
+THEN I am again presented with current and future conditions for that city
+WHEN I open the weather dashboard
+THEN I am presented with the last searched city forecast
+```
+
+The following image demonstrates the application functionality:
+
+![weather dashboard demo](./Assets/06-server-side-apis-homework-demo.png) -->
+
+    <div class="container">
+        <div class="app-title">
+            <p>Weather</p>
+        </div>
+        <div class="notification"></div>
+        <div class="weather-container">
+            <div class="weather-icon"></div>
+            <div class="temperature-value">
+                <p>- °<span>C</span></p>
+            </div>
+            <div class="temperature-description">
+                <p>-</p>
+            </div>
+            <div class="location">
+                <p>-</p>
+            </div>
+        </div>
+    </div>
+
+<!-- clock HTML -->
+<div class="wrapper"> </div>
+        <!--  Header Section -->
+    <div class="row header_wrapper">
+        <!-- empty -->
+        <div class="col-3"></div>
+        <div class="City col-5">
+            Madrid
+        </div>    
+    </div>
+    <!-- Clock Section -->
+    <div class="row Clock">
+        <div class="Clock_Hour" id="Clock">  </div>
+    </div>
+
+
+
+
+    <script src="weatherapi.js"></script>
+
+</body>
+
+</html>

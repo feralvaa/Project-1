@@ -1,0 +1,35 @@
+.wrapper{
+            
+    padding: 50px;
+    background-color: rgb(34, 34, 34);
+}
+.header_wrapper{
+    background-color: rgb(34, 34, 34);
+    padding: 20px;
+}
+.City{
+    color: rgb(251, 203, 64);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 60px;
+}
+.Clock{
+    color: rgb(251, 203, 64);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(34, 34, 34);
+    padding-left: 30%;
+    font-size: 150px;
+    
+}
+
+.latitude {                   
+    display:none;
+  }
+
+.longitude {
+    display:none;
+}
+
+.WeatherResult{
+    display:none;
+
+} 

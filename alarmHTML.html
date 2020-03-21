@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarm Clock</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"/>
+
+
+
+</head>
+<body>
+
+<!-- empty div -->
+<div class="wrapper"> </div>
+        <!--  Header Section -->
+    <div class="row header_wrapper">
+        <!-- empty -->
+        <div class="col-3"></div>
+        <div class="City col-5">
+            Madrid
+        </div> 
+        <div class="latitude"></div>
+        <div class="longitude"></div>
+        <div class="WeatherResult"></div>
+    </div>
+    <!-- Clock Section -->
+    <div class="row Clock">
+        <div class="Clock_Hour" id="Clock">  </div>
+    </div>
+
+<h1></h1>
+        <div class="row">
+            <form id="userDTEntry" class="col-sm-1">
+                <input type="datetime-local" id="alarmTime"/>
+                <button id="submitButton">
+                    Set Alarm
+                <!-- </button> -->
+                </form>
+            <input id="cityField">
+        </div>
+
+        <audio id="rainySong">
+            <!-- Local MP3 -->
+            <source src="https://www.coothead.co.uk/audio/You-Cant-Always-Get-What-You-Want.mp3" type="audio/mpeg">
+        </audio>
+
+
+<!-- <h2></h2> -->
+
+
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        
+
+
+<!-- ABIR'S CODE BELOW -->
+<!-- <script>
+/*  Weather API */
+var OneWordClimate
+var currLocation;
+var apiKey = "166a433c57516f51dfab1f7edaed8413"
+var APICity = document.querySelector("#cityField");
+function CallWeather(){ 
+     
+    var APICity = "Sydney";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+APICity+"&units=imperial&appid=166a433c57516f51dfab1f7edaed8413";
+    //add new api
+    var queryURL1 = "https:/api.openweathermap.org/data/2.5/weather?q=" + currLocation + " &appid=" + apiKey;
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response) {            
+     OneWordClimate = response.weather[0].main
+    return OneWordClimate;
+})
+
+}
+CallWeather();
+
+console.log(OneWordClimate);
+
+function latLon(position) {
+        var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + " &appid=" + apiKey;
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response)
+            currentLoc = response.name;
+            dataStroage(response.name);// call the function for save the data
+            getCurrent(currentLoc);// call the the function for cureent weather
+        });
+    }
+
+</script> -->
+<!-- ABIR'S CODE ABOVE --> 
+
+
+
+<script src="alarmlogic.js"></script>
+
+
+</body>
+</html>
