@@ -5,9 +5,6 @@
 document.addEventListener("DOMContentLoaded", init);
 var h1;
 
-
-
-
 function init() {
 
 	//+++++++++++Form addeventlistener method+++++++++++++++
@@ -40,43 +37,11 @@ function alarmFinished() {
 	h1.textContent = "Alarm Finished!";
 	// weatherAPIex(PLACEHOLDER);
 	geo2();
-	playSong(); 
+	// playSong(); 
 	
-	}
-
-                                                                                                                                                                 
-function weatherAPIex(){
-
-};
-
-function playSong(){
-	var OneWordClimate.inner
-	var weatherID =$(".WeatherResult").val()    
-	console.log(weatherID)
-    
-    if (weatherID > 0 || weatherID < 1000 ) {
-    	var RainySound = $("#rainySong");
-      console.log(RainySound)
-    //   RainySound.play();
-    
-	  
-    } 
-    // else if ((weatherID > 300 || weatherID < 400)) {
-    //     //  block of code to be executed if the condition is false
-    // }
-    // else if ((weatherID > 400 || weatherID < 500)) {
-    //     //  block of code to be executed if the condition is false
-    // }
-    // else{
-
-
-    // }
-}  
-//======================================================
-//===================BELOW IS THE WEATHER API HW==========================
-
-//===================ABOVE IS THE WEATHER API HW==========================
-
+	var OneWordClimate
+}
+                                                                  
 
 /*************************************************************/
 /* ALARM CLOCK MODULE */
@@ -95,32 +60,6 @@ function setAlarmClock(targetTimeInMS, finishedCallback, tickCallback) { //front
 	}
 }
 /*************************************************************/
-
-
-// /*  Weather API */
-// var OneWordClimate
-// var currLocation;
-// var apiKey = "166a433c57516f51dfab1f7edaed8413"
-// function CallWeather() {
-     
-//     var APICity = "Sydney";
-//     console.log(APICity)
-//     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+APICity+"&units=imperial&appid=166a433c57516f51dfab1f7edaed8413";
-//     //add new api
-//     var queryURL1 = "https:/api.openweathermap.org/data/2.5/weather?q=" + currLocation + " &appid=" + apiKey;
-//     $.ajax({
-//         url: queryURL1,
-//         method: "GET"
-//     }).then(function(response) {            
-//      OneWordClimate = response.weather[0].main
-//     console.log(response)
-//     console.log(OneWordClimate);
-// })
-// }
-// CallWeather()
-
-
-
 
 /* Clock*/
 function update() {
@@ -154,7 +93,9 @@ function update() {
 		  let long = position.coords.longitude;
 			$(".latitude").text(lat)
 			$(".longitude").text(long)
-
+			
+			// //to test without using the timer to reach zero; remove comment and let geo2(); run
+			// geo2();
 		
 		  var OneWordClimate
 		  var currLocation;
@@ -184,7 +125,7 @@ geo1();
 		var lat = $(".latitude").text();
 		var long = $(".longitude").text();
 	
-		var OneWordClimate
+		var OneWordClimate;
 		var currLocation;
 		var queryURL = "https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+long+"&appid=166a433c57516f51dfab1f7edaed8413";
 		
@@ -195,13 +136,59 @@ geo1();
 			url: queryURL,
 			method: "GET"
 		}).then(function(response) {            
-		OneWordClimate = response.weather[0].id
-		console.log(response)
-		console.log(OneWordClimate);
-		console.log(response.name);
-		$(".WeatherResult").text(response.weather[0].id)
-		debugger
-		})
-		
-	}
+			OneWordClimate = response.weather[0].id
+			console.log(response)
+			console.log(OneWordClimate);
+			console.log(typeof OneWordClimate);
+			console.log(response.name);
+			//this is the weather icon asset
+			var img = "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png"
+			var image = $("<img>").attr({
+				src : img,
+				alt : "Weather Icon",
+				width : "250px",
+				class : "weatherImage"
+			});
+			$("#weatherDisplay").append(image);
+			
+			$(".WeatherResult").text(response.weather[0].id)
+		});
+			//this is where the audio API
+			//https://developers.soundcloud.com/docs#search
+			//work on naming conventions, indentation, cleaner...
+	
+			function playSong(){
+			// var OneWordClimate.inner
+			// var weatherID =$(".WeatherResult").val()    
+			// console.log(weatherID)
+			
+			// if (weatherID > 0 || weatherID < 1000 ) {
+			// 	var RainySound = $("#rainySong");
+			//   console.log(RainySound)
 
+			// var OneWordClimate;
+			var correctSong = document.getElementById("rainySong"); 
+			correctSong.play();
+			// How do I make the song an object to i can play it with .play()
+				// if (OneWordClimate >200 || OneWordClimate <300 ) {
+			// 	//  block of code to be executed if the condition is true
+				
+			// }
+			// else if ((OneWordClimate > 300 || OneWordClimate < 400)) {
+			// 	//  block of code to be executed if the condition is false
+			// }
+			// else if ((OneWordClimate > 500 || OneWordClimate < 600)) {
+			// 	//  block of code to be executed if the condition is false
+			// }
+			// else if ((OneWordClimate > 600 || OneWordClimate < 700)) {
+			// 	//  block of code to be executed if the condition is false
+			// }
+		}
+		// else if ((OneWordClimate > 600 || OneWordClimate < 700)) {
+		// 	//  block of code to be executed if the condition is false
+		// }
+			// else{
+			// }
+	}
+	
+	

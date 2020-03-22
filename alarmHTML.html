@@ -13,8 +13,6 @@
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"/>
 
-
-
 </head>
 <body>
 
@@ -36,7 +34,12 @@
         <div class="Clock_Hour" id="Clock">  </div>
     </div>
 
+    <div class="row justify-content-center" id="weatherDisplay"></div>
+
+<!-- this is the time display -->
 <h1></h1>
+
+
         <div class="row">
             <form id="userDTEntry" class="col-sm-1">
                 <input type="datetime-local" id="alarmTime"/>
@@ -48,8 +51,9 @@
         </div>
 
         <audio id="rainySong">
+            <source src=“alarm1.mp3”/>
             <!-- Local MP3 -->
-            <source src="https://www.coothead.co.uk/audio/You-Cant-Always-Get-What-You-Want.mp3" type="audio/mpeg">
+            <!-- <source src="https://www.coothead.co.uk/audio/You-Cant-Always-Get-What-You-Want.mp3" type="audio/mpeg"> -->
         </audio>
 
 
@@ -57,59 +61,11 @@
 
 
 
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         
-
-
-<!-- ABIR'S CODE BELOW -->
-<!-- <script>
-/*  Weather API */
-var OneWordClimate
-var currLocation;
-var apiKey = "166a433c57516f51dfab1f7edaed8413"
-var APICity = document.querySelector("#cityField");
-function CallWeather(){ 
-     
-    var APICity = "Sydney";
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+APICity+"&units=imperial&appid=166a433c57516f51dfab1f7edaed8413";
-    //add new api
-    var queryURL1 = "https:/api.openweathermap.org/data/2.5/weather?q=" + currLocation + " &appid=" + apiKey;
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function(response) {            
-     OneWordClimate = response.weather[0].main
-    return OneWordClimate;
-})
-
-}
-CallWeather();
-
-console.log(OneWordClimate);
-
-function latLon(position) {
-        var lat = position.coords.latitude;
-        var lon = position.coords.longitude;
-        var queryURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + " &appid=" + apiKey;
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(function (response) {
-            console.log(response)
-            currentLoc = response.name;
-            dataStroage(response.name);// call the function for save the data
-            getCurrent(currentLoc);// call the the function for cureent weather
-        });
-    }
-
-</script> -->
-<!-- ABIR'S CODE ABOVE --> 
-
-
-
-<script src="alarmlogic.js"></script>
+        <script src="alarmlogic.js"></script>
 
 
 </body>
